@@ -1,6 +1,6 @@
 
 
-# IV Nicknamer
+# PokePanel
 
 ## Usage
 
@@ -9,14 +9,10 @@ This application is to name your Pokemon in Pokemon Go with their Individual Val
 
 ## Roadmap
 
-1. ~~Fix up HTML/CSS for mobile viewing~~
-2. Show output to user
-3. ~~Make submit go back to index.ejs but with an alert~~
-4. Handle erroneous inputs, namely fix email requirement for PTC login
-5. ~~Protect POST from responding to other sites~~
-6. ~~Add in comma reset functionality~~
-7. ~~Add in ability to reset all Pokemon names to their type~~
-8. To infinity and beyond!
+1. Show output to user
+2. Handle erroneous inputs, namely fix email requirement for PTC login
+3. Show all Pokemon account info to user
+4. To infinity and beyond!
 
 
 ## Thanks to
