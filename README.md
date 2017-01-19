@@ -18,4 +18,5 @@ This application is to name your Pokemon in Pokemon Go with their Individual Val
 ## Thanks to
 
 Initial concept based on [frontsideair/iv-nickname](https://github.com/frontsideair/iv-nickname)
+
 Uses the amazing [cyraxx/pogobuf](https://github.com/cyraxx/pogobuf) library
