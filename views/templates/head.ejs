@@ -5,11 +5,29 @@
 
 <!-- styles -->
 <link href="/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/stylesheets/style.css" rel="stylesheet">
+<link id="size-stylesheet" href="/stylesheets/style.css" rel="stylesheet">
 <script src="/lib/jquery/jquery-3.1.1.min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="/lib/ejs/ejs.js"></script>
 <script src="http://spin.js.org/spin.min.js"></script>
 
-
 <meta name="viewport" content="device-width, initial-scale=1">
+
+<script>
+
+function adjustStyle(width) {
+  width = parseInt(width);
+  if (width < 800) {
+    $("#size-stylesheet").attr("href", "/stylesheets/style-mobile.css");
+  } else {
+     $("#size-stylesheet").attr("href", "/stylesheets/style.css"); 
+  }
+}
+
+$(function() {
+  adjustStyle($(this).width());
+  $(window).resize(function() {
+    adjustStyle($(this).width());
+  });
+});
+</script>

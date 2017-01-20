@@ -44,6 +44,7 @@ if ('development' === app.get('env')) {
 app.get('/', routes.index);
 app.get('/admin', routes.admin);
 
+
 app.post('/', function (req, res) {
 
 	var email = req.body.email;
