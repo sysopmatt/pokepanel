@@ -14,20 +14,26 @@
 <meta name="viewport" content="device-width, initial-scale=1">
 
 <script>
+var runOnce = 'true';
 
 function adjustStyle(width) {
-  width = parseInt(width);
-  if (width < 800) {
-    $("#size-stylesheet").attr("href", "/stylesheets/style-mobile.css");
-  } else {
-     $("#size-stylesheet").attr("href", "/stylesheets/style.css"); 
-  }
+if (runOnce=='true'){
+	width = parseInt(width);
+	  if (width < 800) {
+	    $("#size-stylesheet").attr("href", "/stylesheets/style-mobile.css");
+	  } else {
+	     $("#size-stylesheet").attr("href", "/stylesheets/style.css"); 
+	  }
+	}
 }
+$(document).ready(function() {
 
-$(function() {
   adjustStyle($(this).width());
   $(window).resize(function() {
     adjustStyle($(this).width());
   });
+
+runOnce = 'false';
+
 });
 </script>
