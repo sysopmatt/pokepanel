@@ -1,0 +1,35 @@
+<% layout('layout') -%>
+
+<script>
+      $(function () {
+
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+		  alert('Processing...');
+          $.ajax({
+            type: 'post',
+            url: '/',
+            data: $('form').serialize(),
+            success: function (response) {
+              $('.body-lower').html(response);
+            }
+            
+          });
+
+        });
+
+      });
+</script>
+
+<div class="body-main">
+        
+
+	<form class="form-horizontal">
+
+	<!-- Form Name -->
+	<legend>Admin page</legend>
+	<p>Nothing to see here...</p>
+	
+</div>

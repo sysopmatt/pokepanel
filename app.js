@@ -5,7 +5,6 @@
 
 var express = require('express'), 
   routes = require('./routes'), 
-  user = require('./routes/user'),
   pokemon = require('./routes/pokemon'),
   http = require('http'),
   path = require('path');
@@ -44,7 +43,7 @@ if ('development' === app.get('env')) {
 
 app.get('/', routes.index);
 //app.get('/', pokemon.main);
-//app.get('/users', user.list);
+app.get('/admin', routes.admin);
 
 app.post('/', function (req, res) {
 
