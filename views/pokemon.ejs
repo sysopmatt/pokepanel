@@ -7,13 +7,13 @@
         $('form').on('submit', function (e) {
 
           e.preventDefault();
-
+		  alert('Processing...');
           $.ajax({
             type: 'post',
             url: '/',
             data: $('form').serialize(),
             success: function (response) {
-              $('.body-main').html(response);
+              $('.body-lower').html(response);
             }
             
           });
@@ -101,8 +101,9 @@
 	
 	</fieldset>
 	</form>
-  
+</div>
 
+<div class="body-lower">
 
   	<legend>Usage explained</legend>
   	  <p><strong>Naming scheme:</strong> The naming scheme has two options.  

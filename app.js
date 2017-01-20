@@ -42,24 +42,27 @@ if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//app.get('/', routes.index);
-app.get('/', pokemon.main);
+app.get('/', routes.index);
+//app.get('/', pokemon.main);
 //app.get('/users', user.list);
 
+app.post('/', function (req, res) {
 
-app.post('/',function(req,res){
-	  var email=req.body.email;
-	  var password=req.body.password;
-	  var method=req.body.method;
-	  var scheme=req.body.scheme;
-	  var options=req.body.options;
-	  var reset_commas=req.body.reset_commas;
-	  var output;
-	  
-	  var output = tools.nickname(method, email, password, reset_commas, scheme);
-	  
-	  res.end(output);
+	var email = req.body.email;
+	var password = req.body.password;
+	var method = req.body.method;
+	var scheme = req.body.scheme;
+	var options = req.body.options;
+	var reset_commas = req.body.reset_commas;
+	tools.nickname(method, email, password, reset_commas, scheme).then(data => {
+
+		var output = data;
+
+		res.end(output);
 	});
+
+});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

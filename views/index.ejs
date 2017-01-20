@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-	
-	<meta charset="utf-8">	
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<% layout('layout') -%>
 
-    <script>
+<script>
       $(function () {
+
 
         $('form').on('submit', function (e) {
 
           e.preventDefault();
-
+		  alert('Processing...');
           $.ajax({
             type: 'post',
             url: '/',
             data: $('form').serialize(),
-            success: function () {
-              alert('Done! Please wait up to 2 minutes to see changes in game.');
+            success: function (response) {
+              $('.body-lower').html(response);
             }
             
           });
@@ -30,17 +21,13 @@
         });
 
       });
-	</script>
-	
-    <meta name="viewport" content="device-width, initial-scale=1">
-  </head>
-  
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+</script>
+
+<div class="body-main">
+        
+
 	<form class="form-horizontal">
-	<fieldset>
-	
+
 	<!-- Form Name -->
 	<legend>Account Info</legend>
 	
@@ -114,14 +101,9 @@
 	
 	</fieldset>
 	</form>
-  
-  
-  	<legend>Output</legend>
-  	  <p><strong>Output:</strong>  
-  	  <p><span id='output'></span>
+</div>
 
-
-
+<div class="body-lower">
 
   	<legend>Usage explained</legend>
   	  <p><strong>Naming scheme:</strong> The naming scheme has two options.  
@@ -136,6 +118,5 @@
 	    $('[data-toggle="popover"]').popover();
 	});
 	</script>
-	<p> Last update: 1-8-2017
-  </body>
-</html>
+	
+</div>
