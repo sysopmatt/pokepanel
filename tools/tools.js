@@ -7,7 +7,7 @@ module.exports = {
 		
 		nickname: function (method, user, pass, reset_commas, scheme) {
 			
-			var output = "<legend>Renaming the following:</legend>";
+			var output = "<legend>Renaming the following:</legend><p align='center'>";
 			
 			//At first your function should return Promise if it perform async action
 			return  new Promise((resolve, reject) => {
@@ -136,7 +136,12 @@ module.exports = {
 						
 						console.log('Done!');
 						
+						//send batch call to Niantic
 						client.batchCall()
+						
+						output = output +'</p>';
+						
+						
 						//when you get async data which should be returned call resolve() method and pass data to this method
 						resolve(output)
 						// return client.batchCall();

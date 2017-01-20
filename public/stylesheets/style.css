@@ -8,7 +8,15 @@ a {
 }
 
 p {
-	text-align: center;
+	text-align: left;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+ol {
+	text-align: left;
+    margin-right: 200px;
+    margin-left: 200px;
 }
 
 h1 {
