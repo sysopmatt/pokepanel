@@ -126,7 +126,7 @@ module.exports = {
 									if (pokemon.nickname !== nick) {
 										//console.log('Found a '+ pokemon.name +' with CP of '+ pokemon.cp +'.  Renamed to: '+ nick);
 										output = output +'<br>'+ pokemon.name +' with CP '+ pokemon.cp +' renamed to: <strong>'+ nick +'</strong>';
-										//client.nicknamePokemon(pokemon.id, nick);
+										client.nicknamePokemon(pokemon.id, nick);
 									}
 									
 								}
