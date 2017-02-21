@@ -53,11 +53,11 @@ app.post('/', function (req, res) {
 	var scheme = req.body.scheme;
 	var options = req.body.options;
 	var reset_commas = req.body.reset_commas;
-	tools.nickname(method, email, password, reset_commas, scheme).then(data => {
+	tools.nickname(method, email, password, reset_commas, scheme).then(function(data) {
 
 		var output = data;
 
-		res.end(output);
+		res.end(JSON.stringify(output));
 	});
 
 });

@@ -8,6 +8,7 @@ module.exports = {
 		nickname: function (method, user, pass, reset_commas, scheme) {
 			
 			var output = "<legend>Renaming the following:</legend><p align='center'>";
+			var output2;
 			
 			//At first your function should return Promise if it perform async action
 			return  new Promise((resolve, reject) => {
@@ -94,7 +95,7 @@ module.exports = {
 						client.batchStart();
 						
 						
-						
+						output2 = pokebox;
 						//run through each pokemon in the pokebox
 						pokebox.forEach(function(pokemon) {
 							
@@ -126,7 +127,7 @@ module.exports = {
 									if (pokemon.nickname !== nick) {
 										//console.log('Found a '+ pokemon.name +' with CP of '+ pokemon.cp +'.  Renamed to: '+ nick);
 										output = output +'<br>'+ pokemon.name +' with CP '+ pokemon.cp +' renamed to: <strong>'+ nick +'</strong>';
-										//client.nicknamePokemon(pokemon.id, nick);
+										client.nicknamePokemon(pokemon.id, nick);
 									}
 									
 								}
@@ -141,9 +142,15 @@ module.exports = {
 						
 						output = output +'</p>';
 						
+						//console.log(output2);
+						
+						var pokepanel = [];
+						pokepanel[0] = output;
+						pokepanel[1] = output2;
+						
 						
 						//when you get async data which should be returned call resolve() method and pass data to this method
-						resolve(output)
+						resolve(pokepanel)
 						// return client.batchCall();
 						
 					}).catch(console.error);

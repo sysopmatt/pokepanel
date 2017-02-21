@@ -5,30 +5,49 @@
 
 
         $('form').on('submit', function (e) {
-
           e.preventDefault();
-		  $('.body-lower').html('<legend>Renaming the following:</legend><p>Processing... This may take a few seconds.');
+		  $('.body-top').html('<legend>Renaming the following:</legend><p>Processing...');
           $.ajax({
             type: 'post',
             url: '/',
             data: $('form').serialize(),
             success: function (response) {
-              $('.body-lower').html(response);
+            pokebox = JSON.parse(response)
+              $('.body-top').html(pokebox[0]);
+             
             }
+          
+          
+         
             
           });
-
+		parsePokemon(pokebox[1])
         });
 
       });
+      function parsePokemon(pokebox) {
+      	$('.body-lower').html(pokebox.cp);
+      }
 </script>
 
 <script>
+ 		  //you just added the above foreach and the 'var pokebox' up top
+          //it's posting the form data to the end of the url
+          //you should figure out why that happens and what else to do
+          
+          
+          //basically you want to parse the pokebox[1] data into what it is
+          //with the pokemon's picture next to it, it will be sweet, trust me
+          //oh maybe do the hover over thing (like the 'info' pics)
+          //with info about the 'mons! That's a freaking sweet idea and a cool
+          //ass way to reuse that code right down below this!
 	$(document).ready(function(){
 	    $('[data-toggle="popover"]').popover();
 	});
 </script>
 
+<div class="body-top">
+</div>
 <div class="body-main">
         
 
@@ -109,7 +128,13 @@
 	</form>
 </div>
 
-<div class="body-lower">
+<div class="body-mid">
       <% include includes/usage.ejs%>
 </div>
+
+<div class="body-lower">
+	
+</div>
+
+
 	
